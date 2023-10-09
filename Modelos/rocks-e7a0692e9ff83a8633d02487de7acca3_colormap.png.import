@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cg2x5wlwk4kn3"
+path.s3tc="res://.godot/imported/rocks-e7a0692e9ff83a8633d02487de7acca3_colormap.png-1812d31337838301f977106c36e54173.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://Modelos/rocks-e7a0692e9ff83a8633d02487de7acca3_colormap.png"
+dest_files=["res://.godot/imported/rocks-e7a0692e9ff83a8633d02487de7acca3_colormap.png-1812d31337838301f977106c36e54173.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
