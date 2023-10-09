@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtybaajie3ybd"]
+
+[ext_resource type="PackedScene" uid="uid://dwlq2jlqqtjf0" path="res://Scripts/skeleton.tscn" id="1_0aspt"]
+[ext_resource type="PackedScene" uid="uid://q50e1ig6143x" path="res://Modelos/pine.glb" id="2_gra2o"]
+[ext_resource type="PackedScene" uid="uid://bm5awyuv5ija3" path="res://Modelos/pine-crooked.glb" id="3_bba8r"]
+[ext_resource type="PackedScene" uid="uid://l1eoig8r8yd1" path="res://Modelos/pumpkin-carved.glb" id="4_loqi6"]
+[ext_resource type="PackedScene" uid="uid://bdyghqrnnlp5x" path="res://Modelos/pumpkin-tall-carved.glb" id="5_5qiro"]
+
+[node name="level" type="Node3D"]
+
+[node name="skeleton" parent="." instance=ExtResource("1_0aspt")]
+
+[node name="trees" type="Node3D" parent="."]
+
+[node name="pine" parent="trees" instance=ExtResource("2_gra2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68932, 0, -0.659233)
+
+[node name="pine-crooked" parent="trees" instance=ExtResource("3_bba8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2999, 0, -1.79127)
+
+[node name="pine-crooked2" parent="trees" instance=ExtResource("3_bba8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.89995, 0, 1.69048)
+
+[node name="pumpkin" type="Node3D" parent="."]
+
+[node name="pumpkin-carved" parent="pumpkin" instance=ExtResource("4_loqi6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.503204, 0, -1.45094)
+
+[node name="pumpkin-tall-carved" parent="pumpkin" instance=ExtResource("5_5qiro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41253, 0, 0)
+
+[node name="lanterns" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="SpotLight3D" parent="lanterns"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.812582, 0.137015, 0.864477)
+light_color = Color(0.67451, 1, 0.172549, 1)
+light_energy = 0.2
