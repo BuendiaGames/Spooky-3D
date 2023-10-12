@@ -14,6 +14,3 @@ script = ExtResource("1_qkt08")
 [node name="shape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370821, 0)
 shape = SubResource("BoxShape3D_4byra")
-
-[node name="cam" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.721268, 1.26123)

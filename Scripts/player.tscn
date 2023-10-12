@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cux3dsvw0int2"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ptyk3"]
+[ext_resource type="PackedScene" uid="uid://bat2lj5w135gk" path="res://Modelos/character-digger.glb" id="2_3cc3p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4byra"]
+size = Vector3(0.281803, 0.754907, 0.253179)
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_ptyk3")
+
+[node name="shape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370821, 0)
+shape = SubResource("BoxShape3D_4byra")
+
+[node name="model" parent="." instance=ExtResource("2_3cc3p")]
+
+[node name="springarm" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+spring_length = 1.5
+
+[node name="cam" type="Camera3D" parent="springarm"]
