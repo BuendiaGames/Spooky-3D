@@ -13,47 +13,43 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta):
 	
-	#Get a vector (x,y) with the direction of the arrows
-	#if a joystick is used this is a continuous variable
+	#Vector (x,y) con la direccion de las flechas. Con un joystick es continua
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
-	#Direction relative to world
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
-	#Direction rotated according to our camera view
-	#var direction = Vector3(input_dir.x, 0, input_dir.y).rotated(Vector3.UP, springarm.rotation.y)
-	
-	#If something was pressed (any coord of direction != 0)
-	if direction:
+	#Si pulsamos algo, input_dir !=0 y andamos
+	if input_dir:
+		#Rotar nuestro input en la direccion donde mira la camara
+		#que viene dada por el springarm
+		var direction = Vector3(input_dir.x, 0, input_dir.y).rotated(Vector3.UP, springarm.rotation.y)
 		
-		#TODO seems that model is facing backwards for our coordinate 
-		#system. One should put it back. Maybe store the direction 
-		#we are facing in a variable so we don't have use model rotation
-		#in the velocity
+		#Normalizar velocidad (evita diagonales mas rapidas)
+		velocity = direction.normalized() * SPEED
 		
-		#Rotate our model
-		$model.rotation.y += (delta * 2 *SPEED * direction.x)
+		#Obtener el angulo de la velocidad para poner el muñeco mirando a donde debe 
+		var look_direction = Vector2(velocity.z, velocity.x)
+		$model.rotation.y = look_direction.angle()
 		
-		#Set velocity of our thing based on model's rotation
-		velocity = SPEED * direction.rotated(Vector3.UP, $model.rotation.y)
+		#TODO usar el move toward para que vaya rotando suavemente tal vez
 		
-		#Play animation
+		#Animacion
 		$model/AnimationPlayer.play("walk")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+		#Elimina la velocidad
+		velocity.x = 0.0
+		velocity.z = 0.0
 		$model/AnimationPlayer.play("idle")
 	
-	
+	#Haz el movimiento
 	move_and_slide()
 
 #Capture mouse 
 func _unhandled_input(event):
-	#Mouse motion
+	#Captura el raton
 	if event is InputEventMouseMotion:
-		#Capture relative movement in X and use for camera up/down
+		#Captura movimiento relativo en el eje Y de la pantalla para la camara
 		springarm.rotation.x -= event.relative.y * MOUSECAM
-		#Cap camera angles to not go below the ground...
+		#Pon un limite para evitar ir bajo el suelo
 		springarm.rotation_degrees.x = clamp(springarm.rotation_degrees.x, -60, 10)
-		#Camera on the Y axis
+		#El otro eje de la camara
 		springarm.rotation.y -= event.relative.x * MOUSECAM
