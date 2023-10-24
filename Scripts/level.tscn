@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://dtybaajie3ybd"]
 
-[ext_resource type="PackedScene" uid="uid://dwlq2jlqqtjf0" path="res://Scripts/skeleton.tscn" id="1_0aspt"]
 [ext_resource type="PackedScene" uid="uid://q50e1ig6143x" path="res://Modelos/pine.glb" id="2_gra2o"]
 [ext_resource type="PackedScene" uid="uid://bm5awyuv5ija3" path="res://Modelos/pine-crooked.glb" id="3_bba8r"]
 [ext_resource type="PackedScene" uid="uid://l1eoig8r8yd1" path="res://Modelos/pumpkin-carved.glb" id="4_loqi6"]
 [ext_resource type="PackedScene" uid="uid://bdyghqrnnlp5x" path="res://Modelos/pumpkin-tall-carved.glb" id="5_5qiro"]
 [ext_resource type="PackedScene" uid="uid://cux3dsvw0int2" path="res://Scripts/player.tscn" id="6_1sa28"]
+[ext_resource type="PackedScene" uid="uid://caelcc6noqyl0" path="res://Scripts/enemies/ghost.tscn" id="6_tal1a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c83ea"]
 sky_top_color = Color(0.309804, 0.368627, 0.454902, 1)
@@ -30,8 +30,6 @@ environment = SubResource("Environment_1rrqy")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 light_color = Color(1, 0.709804, 0.356863, 1)
 shadow_enabled = true
-
-[node name="skeleton" parent="." instance=ExtResource("1_0aspt")]
 
 [node name="trees" type="Node3D" parent="."]
 
@@ -61,3 +59,5 @@ light_energy = 0.2
 
 [node name="player" parent="." instance=ExtResource("6_1sa28")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.75211)
+
+[node name="ghost" parent="." instance=ExtResource("6_tal1a")]
