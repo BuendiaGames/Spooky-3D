@@ -32,6 +32,7 @@ light_color = Color(1, 0.709804, 0.356863, 1)
 shadow_enabled = true
 
 [node name="trees" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.34631, 0, 0)
 
 [node name="pine" parent="trees" instance=ExtResource("2_gra2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68932, 0, -0.659233)
@@ -61,3 +62,4 @@ light_energy = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.75211)
 
 [node name="ghost" parent="." instance=ExtResource("6_tal1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.901803, 0.659859, -0.903425)
